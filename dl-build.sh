@@ -39,7 +39,7 @@ VARIANT=tmo
 
 [ -z $VER ] && \
 # version number
-VER=0.1
+VER=n900t-OL1-0.1
 
 # KERNEL_NAME should NOT contain any spaces
 KERNEL_NAME=delidded-kernel
