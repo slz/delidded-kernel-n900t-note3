@@ -46,11 +46,11 @@ KERNEL_NAME=delidded-kernel
 
 # kernel version string appended to 3.4.x-${KERNEL_NAME}-kernel-hlte-
 # (shown in Settings -> About device)
-KERNEL_VERSION=$VARIANT-$VER-cm12.1
+KERNEL_VERSION=$VARIANT-$VER
 
 [ -z $PERMISSIVE ] && \
 # should we boot with SELinux mode set to permissive? (1 = permissive, 0 = enforcing)
-PERMISSIVE=1
+PERMISSIVE=0
 
 # output directory of flashable kernel
 OUT_DIR=$RDIR
@@ -157,11 +157,11 @@ BUILD_BOOT_IMG()
 	$RDIR/scripts/mkqcdtbootimg/mkqcdtbootimg --kernel $KDIR/zImage \
 		--ramdisk $KDIR/ramdisk.cpio.gz \
 		--dt_dir $KDIR \
-		--cmdline "quiet console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=$SELINUX" \
+		--cmdline "console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 ehci-hcd.park=3 androidboot.selinux=$SELINUX" \
 		--base 0x00000000 \
 		--pagesize 2048 \
-		--ramdisk_offset 0x02900000 \
-		--tags_offset 0x02700000 \
+		--ramdisk_offset 0x02000000 \
+		--tags_offset 0x01e00000 \
 		--output $RDIR/${ZIP_FOLDER}/boot.img
 }
 
