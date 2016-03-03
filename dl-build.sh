@@ -50,7 +50,7 @@ KERNEL_VERSION=$VARIANT-$VER
 
 [ -z $PERMISSIVE ] && \
 # should we boot with SELinux mode set to permissive? (1 = permissive, 0 = enforcing)
-PERMISSIVE=0
+PERMISSIVE=1
 
 # output directory of flashable kernel
 OUT_DIR=$RDIR
@@ -137,6 +137,7 @@ BUILD_RAMDISK()
 	rm -rf build/ramdisk 2>/dev/null
 	mkdir -p build/ramdisk
 	cp -ar ${RAMDISK_FOLDER}/common/* build/ramdisk
+	cp -ar ${RAMDISK_FOLDER}/$SELINUX/* build/ramdisk
 	cp -ar ${RAMDISK_FOLDER}/variant/$VARIANT/* build/ramdisk
 	echo "Building ramdisk.img..."
 	cd $RDIR/build/ramdisk

@@ -19,6 +19,5 @@ dalvik.vm.image-dex2oat-Xms=64m
 dalvik.vm.image-dex2oat-Xmx=64m
 ro.dalvik.vm.native.bridge=0
 ro.securestorage.support=false
-#ro.build.selinux=0
 ro.config.knox=0
 ro.config.tima=0
